@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คนละครึ่งพลัส - Ultimate Christmas Edition</title>
+    <title>คนละครึ่งพลัส - Christmas Edition</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,10 +24,13 @@
         body {
             background: linear-gradient(to bottom, var(--bg-night), var(--brand-blue));
             display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; padding: 20px; position: relative; overflow: hidden;
+            min-height: 100vh; 
+            padding: 20px; 
+            position: relative; 
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* --- BLIZZARD SNOWFALL EFFECT --- */
+        /* --- SNOWFALL EFFECT --- */
         .snow-container {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 100;
@@ -44,7 +47,7 @@
             100% { transform: translateY(110vh) translateX(30px) rotate(360deg); opacity: 0.3; }
         }
 
-        /* Fast & Dense Snow */
+        /* Snow Configuration */
         .snow:nth-child(1) { left: 5%;  animation-duration: 2.5s; width: 8px; height: 8px; animation-delay: 0s; }
         .snow:nth-child(2) { left: 15%; animation-duration: 3.5s; width: 12px; height: 12px; animation-delay: 1s; }
         .snow:nth-child(3) { left: 25%; animation-duration: 2s; width: 6px; height: 6px; animation-delay: 0.5s; }
@@ -55,21 +58,21 @@
         .snow:nth-child(8) { left: 75%; animation-duration: 2.2s; width: 7px; height: 7px; animation-delay: 1s; }
         .snow:nth-child(9) { left: 85%; animation-duration: 3.2s; width: 10px; height: 10px; animation-delay: 0.8s; }
         .snow:nth-child(10){ left: 95%; animation-duration: 2.5s; width: 9px; height: 9px; animation-delay: 0s; }
-        .snow:nth-child(11){ left: 10%; animation-duration: 3.1s; width: 10px; height: 10px; animation-delay: 1.5s; }
-        .snow:nth-child(12){ left: 20%; animation-duration: 2.0s; width: 7px; height: 7px; animation-delay: 0.2s; }
-        .snow:nth-child(13){ left: 30%; animation-duration: 3.5s; width: 11px; height: 11px; animation-delay: 2s; }
-        .snow:nth-child(14){ left: 50%; animation-duration: 2.4s; width: 8px; height: 8px; animation-delay: 1s; }
-        .snow:nth-child(15){ left: 70%; animation-duration: 2.7s; width: 13px; height: 13px; animation-delay: 0.5s; }
-        .snow:nth-child(16){ left: 90%; animation-duration: 3.3s; width: 9px; height: 9px; animation-delay: 1.2s; }
 
 
-        /* --- CONTAINER (16:9) --- */
+        /* --- RESPONSIVE CONTAINER --- */
         .desktop-container {
-            width: 100%; max-width: 1200px;
+            width: 100%; 
+            max-width: 1200px;
+            /* Default: Desktop Aspect Ratio */
             aspect-ratio: 16 / 9;
-            background: white; border-radius: 25px;
+            background: white; 
+            border-radius: 25px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            overflow: hidden; display: flex; position: relative; z-index: 10;
+            overflow: hidden; 
+            display: flex; 
+            position: relative; 
+            z-index: 10;
         }
 
         /* --- SIDEBAR --- */
@@ -81,7 +84,15 @@
             padding: 50px; position: relative;
         }
 
-        /* --- LOGO & SANTA HAT WRAPPER --- */
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            width: 65%; 
+            background: #f8fdfb; 
+            display: flex; justify-content: center; align-items: center; 
+            position: relative;
+        }
+
+        /* --- LOGO WRAPPER --- */
         .logo-wrapper {
             position: relative; 
             display: inline-block;
@@ -96,28 +107,31 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             position: relative;
             z-index: 1; 
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        .logo-image { max-width: 100%; height: auto; display: block; }
+        .logo-image { max-width: 200px; height: auto; display: block; }
         
-        /* THE EMBEDDED SVG SANTA HAT */
         .santa-hat-svg {
             position: absolute;
-            width: 120px;  /* Size of the hat */
-            height: 120px;
-            top: -65px;    /* Move Up to sit on corner */
-            left: -40px;   /* Move Left to tilt off edge */
+            width: 100px;
+            height: 100px;
+            top: -55px;
+            left: -30px;
             transform: rotate(-15deg);
-            z-index: 20;   /* Ensure it is ABOVE the logo box */
+            z-index: 20;
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
         }
 
-        .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
-
-        /* --- MAIN CONTENT --- */
-        .main-content {
-            width: 65%; background: #f8fdfb; display: flex; justify-content: center; align-items: center; position: relative;
+        .logo-plus-text {
+            color: #8CC63F;
+            font-weight: 800; font-size: 2rem;
+            margin-top: 5px; font-style: italic;
+            text-shadow: 1px 1px 0px #fff;
+            background: white; padding: 0 5px; border-radius: 5px;
         }
+
+        .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
 
         .garland-top {
             position: absolute; top: 0; left: 0; width: 100%; height: 30px;
@@ -127,7 +141,7 @@
 
         /* --- VIEWS --- */
         .view-section {
-            width: 100%; max-width: 450px; text-align: center; display: none; animation: fadeIn 0.5s ease;
+            width: 100%; max-width: 400px; text-align: center; display: none; animation: fadeIn 0.5s ease;
         }
         .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -146,8 +160,8 @@
         /* SUCCESS RECEIPT */
         .success-card { width: 100%; }
         .check-circle-festive {
-            width: 100px; height: 100px; background: var(--xmas-green); border: 4px solid var(--xmas-red); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; color: white; font-size: 3rem; animation: pulse 2s infinite;
+            width: 90px; height: 90px; background: var(--xmas-green); border: 4px solid var(--xmas-red); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; color: white; font-size: 2.5rem; animation: pulse 2s infinite;
         }
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0.7); }
@@ -155,11 +169,67 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0); }
         }
         .receipt-box { background: white; border: 2px dashed var(--xmas-gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; }
-        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; }
+        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; font-size: 0.95rem; }
         .receipt-total { border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px; font-weight: bold; color: var(--brand-blue); }
 
         .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
+        /* =========================================
+           MOBILE RESPONSIVENESS (THE FIX)
+           ========================================= */
+        @media (max-width: 900px) {
+            body {
+                padding: 0; /* Full screen on mobile */
+                align-items: flex-start; /* Start from top */
+                background: var(--brand-blue); /* Solid blue bg for simplicity on mobile */
+            }
+
+            .desktop-container {
+                flex-direction: column; /* Stack vertically */
+                width: 100%;
+                max-width: 100%;
+                aspect-ratio: auto; /* Remove fixed aspect ratio */
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0; /* Remove rounded corners */
+            }
+
+            /* Adjust Sidebar (Header on Mobile) */
+            .sidebar {
+                width: 100%;
+                padding: 30px 20px;
+                align-items: center;
+                text-align: center;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                z-index: 20;
+            }
+
+            .logo-wrapper { margin-bottom: 15px; }
+            .logo-image { max-width: 150px; }
+            .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
+            .logo-plus-text { font-size: 1.5rem; }
+            .season-greeting { font-size: 0.9rem; margin-top: 10px; }
+
+            /* Adjust Main Content */
+            .main-content {
+                width: 100%;
+                padding: 40px 20px;
+                background: #f8fdfb;
+                flex: 1; /* Take remaining height */
+                align-items: flex-start; /* Align content to top */
+            }
+
+            .view-section {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .qr-box-container {
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -168,15 +238,12 @@
         <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
         <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
         <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
     </div>
 
     <div class="desktop-container">
         
         <div class="sidebar">
-            
             <div class="logo-wrapper">
-                
                 <svg class="santa-hat-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path fill="#D42426" d="M418.4,156.6c-45.6-26.7-65.7-18.3-90.1,6.1c-14.7,14.7-27.1,34.2-34.8,55.1
                         c-48.4-56.1-133.7-46.7-160.7-32.5c-48.1,25.2-61.1,100.9-20.9,157.9c16.2,23,43.2,40.1,70.5,49.8
@@ -188,16 +255,14 @@
                 </svg>
                 
                 <div class="logo-container">
-                    <img src="logo.png" alt="คนละครึ่งพลัส Logo" class="logo-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Khon_La_Khrueng_Logo.png/640px-Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
+                    <div class="logo-plus-text">พลัส</div>
                 </div>
             </div>
             
             <p class="season-greeting">
                 ระบบชำระเงินแห่งความสุข<br>
                 <strong>Christmas Edition 2024</strong>
-                <br><br>
-                สิทธิพิเศษสำหรับคุณ<br>
-                ในช่วงเทศกาลส่งท้ายปี
             </p>
         </div>
 
@@ -205,7 +270,7 @@
             <div class="garland-top"></div>
 
             <div id="merchant-view" class="view-section">
-                <h2 style="color:var(--brand-blue);">สแกนจ่ายคนละครึ่ง</h2>
+                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนจ่ายคนละครึ่ง</h2>
                 <p style="color:#666;">ร้านค้า: <strong>ถุงเงินพลัส (สาขาคริสต์มาส)</strong></p>
                 
                 <div class="qr-box-container">
@@ -217,9 +282,9 @@
                 </div>
 
                 <div class="merchant-note">
-                    <strong>For Demo:</strong> If you are running this locally (file://), the phone cannot open the link. 
+                    <strong>For Demo:</strong> Phone can't open local file links.
                     <br>
-                    <span class="sim-link" onclick="window.location.search='?status=success'">Click here to simulate a successful scan</span>
+                    <span class="sim-link" onclick="window.location.search='?status=success'">Click here to simulate success</span>
                 </div>
             </div>
 
@@ -249,7 +314,7 @@
                         </div>
                     </div>
                     
-                    <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:10px 30px; border-radius:50px; margin-top:20px; cursor:pointer;">
+                    <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:12px 30px; border-radius:50px; margin-top:20px; cursor:pointer; width:100%; max-width:200px; font-size:1rem;">
                         หน้าหลัก
                     </button>
                 </div>
@@ -275,8 +340,12 @@
             merchantView.classList.add('active');
             const currentURL = window.location.href.split('?')[0]; 
             const targetURL = currentURL + "?status=success";
+            
+            // Adjust QR Size for mobile if needed
+            const qrSize = window.innerWidth < 600 ? 180 : 200;
+            
             new QRCode(document.getElementById("qrcode"), {
-                text: targetURL, width: 200, height: 200,
+                text: targetURL, width: qrSize, height: qrSize,
                 colorDark : "#21409A", colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
             });
