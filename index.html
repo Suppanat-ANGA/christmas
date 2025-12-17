@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คนละครึ่งพลัส - Christmas Edition</title>
+    <title>ANGA Mastery - Christmas Edition</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -64,7 +64,6 @@
         .desktop-container {
             width: 100%; 
             max-width: 1200px;
-            /* Default: Desktop Aspect Ratio */
             aspect-ratio: 16 / 9;
             background: white; 
             border-radius: 25px;
@@ -107,16 +106,21 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             position: relative;
             z-index: 1; 
-            display: flex; flex-direction: column; align-items: center;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; /* Force centering */
             min-width: 200px;
+            min-height: 120px; /* Give it some height for balance */
         }
 
-        /* LOGO IMAGE STYLE - FIXED */
+        /* LOGO IMAGE STYLE */
         .logo-image { 
             width: 100%; 
             max-width: 200px; 
             height: auto; 
             display: block; 
+            margin: 0 auto; /* Ensure image itself is centered */
         }
         
         .santa-hat-svg {
@@ -130,14 +134,6 @@
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
         }
 
-        .logo-plus-text {
-            color: #8CC63F;
-            font-weight: 800; font-size: 2rem;
-            margin-top: 5px; font-style: italic;
-            text-shadow: 1px 1px 0px #fff;
-            background: white; padding: 0 5px; border-radius: 5px;
-        }
-
         .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
 
         .garland-top {
@@ -147,11 +143,10 @@
         }
 
         /* --- VIEWS --- */
-        /* FIXED: Added 'display: block' to 'active' class explicitly */
         .view-section {
             width: 100%; max-width: 400px; text-align: center; display: none; animation: fadeIn 0.5s ease;
         }
-        .view-section.active { display: block !important; }
+        .view-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* QR DISPLAY */
@@ -216,7 +211,6 @@
             .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
             .logo-image { max-width: 160px; } 
             .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
-            .logo-plus-text { font-size: 1.5rem; }
             .season-greeting { font-size: 0.9rem; margin-top: 10px; }
 
             .main-content {
@@ -258,14 +252,12 @@
                          alt="คนละครึ่ง Logo" 
                          class="logo-image" 
                          referrerpolicy="no-referrer">
-                    
-                    <div class="logo-plus-text">พลัส</div>
                 </div>
             </div>
             
             <p class="season-greeting">
-                ระบบชำระเงินแห่งความสุข<br>
-                <strong>Christmas Edition 2024</strong>
+                ระบบชำระเงิน ANGA Mastery<br>
+                <strong>ANGA Mastery Christmas 2025</strong>
             </p>
         </div>
 
@@ -273,8 +265,8 @@
             <div class="garland-top"></div>
 
             <div id="merchant-view" class="view-section active">
-                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนจ่ายคนละครึ่ง</h2>
-                <p style="color:#666;">ร้านค้า: <strong>ถุงเงินพลัส (สาขาคริสต์มาส)</strong></p>
+                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนจ่าย ANGA</h2>
+                <p style="color:#666;">ร้านค้า: <strong>ANGA Mastery (สาขาคริสต์มาส)</strong></p>
                 
                 <div class="qr-box-container">
                     <div id="qrcode"></div>
@@ -297,11 +289,11 @@
                         <i class="fas fa-check"></i>
                     </div>
                     <h2 style="color:var(--brand-blue); margin-bottom:5px;">ชำระเงินสำเร็จ</h2>
-                    <p style="color:#666;">ใช้สิทธิ์คนละครึ่งเรียบร้อยแล้ว</p>
+                    <p style="color:#666;">ใช้สิทธิ์เรียบร้อยแล้ว</p>
 
                     <div class="receipt-box">
                         <div style="text-align:center; color:var(--xmas-red); margin-bottom:15px; font-weight:bold;">
-                            <i class="fas fa-tree"></i> Merry Christmas <i class="fas fa-tree"></i>
+                            <i class="fas fa-tree"></i> ANGA Mastery Xmas <i class="fas fa-tree"></i>
                         </div>
                         <div class="receipt-row">
                             <span>วันที่</span>
@@ -309,7 +301,7 @@
                         </div>
                         <div class="receipt-row">
                             <span>ร้านค้า</span>
-                            <span>ถุงเงินพลัส</span>
+                            <span>ANGA Mastery</span>
                         </div>
                         <div class="receipt-row receipt-total">
                             <span>สถานะ</span>
@@ -339,16 +331,13 @@
             const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
             document.getElementById('timestamp').innerText = now.toLocaleDateString('th-TH', options);
         } else {
-            // Ensure merchant view is active if not success
             customerView.classList.remove('active');
             merchantView.classList.add('active');
-            
             const currentURL = window.location.href.split('?')[0]; 
             const targetURL = currentURL + "?status=success";
             
             const qrSize = window.innerWidth < 600 ? 180 : 200;
             
-            // Clear any existing QR code before generating a new one
             document.getElementById("qrcode").innerHTML = "";
             new QRCode(document.getElementById("qrcode"), {
                 text: targetURL, width: qrSize, height: qrSize,
