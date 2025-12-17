@@ -64,6 +64,7 @@
         .desktop-container {
             width: 100%; 
             max-width: 1200px;
+            /* Default: Desktop Aspect Ratio */
             aspect-ratio: 16 / 9;
             background: white; 
             border-radius: 25px;
@@ -107,14 +108,13 @@
             position: relative;
             z-index: 1; 
             display: flex; flex-direction: column; align-items: center;
-            min-width: 200px; /* Ensure box has size even if img loads slow */
-            min-height: 120px;
+            min-width: 200px;
         }
 
-        /* FIXED: Use robust image styling */
+        /* LOGO IMAGE STYLE */
         .logo-image { 
             width: 100%; 
-            max-width: 200px; 
+            max-width: 220px; 
             height: auto; 
             display: block; 
         }
@@ -128,14 +128,6 @@
             transform: rotate(-15deg);
             z-index: 20;
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
-        }
-
-        .logo-plus-text {
-            color: #8CC63F;
-            font-weight: 800; font-size: 2rem;
-            margin-top: 5px; font-style: italic;
-            text-shadow: 1px 1px 0px #fff;
-            background: white; padding: 0 5px; border-radius: 5px;
         }
 
         .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
@@ -182,7 +174,7 @@
         .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
         /* =========================================
-           MOBILE RESPONSIVENESS
+           MOBILE RESPONSIVENESS (THE FIX)
            ========================================= */
         @media (max-width: 900px) {
             body {
@@ -201,7 +193,6 @@
                 border-radius: 0; 
             }
 
-            /* Adjust Sidebar (Header on Mobile) */
             .sidebar {
                 width: 100%;
                 padding: 40px 20px 30px 20px;
@@ -214,12 +205,10 @@
             }
 
             .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
-            .logo-image { max-width: 160px; } /* Slightly smaller on mobile */
+            .logo-image { max-width: 160px; } 
             .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
-            .logo-plus-text { font-size: 1.5rem; }
             .season-greeting { font-size: 0.9rem; margin-top: 10px; }
 
-            /* Adjust Main Content */
             .main-content {
                 width: 100%;
                 padding: 40px 20px;
@@ -255,8 +244,7 @@
                 </svg>
                 
                 <div class="logo-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
-                    <div class="logo-plus-text">พลัส</div>
+                    <img src="logo.png" alt="คนละครึ่ง Logo" class="logo-image">
                 </div>
             </div>
             
