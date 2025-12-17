@@ -64,7 +64,6 @@
         .desktop-container {
             width: 100%; 
             max-width: 1200px;
-            /* Default: Desktop Aspect Ratio */
             aspect-ratio: 16 / 9;
             background: white; 
             border-radius: 25px;
@@ -111,10 +110,10 @@
             min-width: 200px;
         }
 
-        /* LOGO IMAGE STYLE */
+        /* Fixed: Use Internet Link */
         .logo-image { 
             width: 100%; 
-            max-width: 220px; 
+            max-width: 200px; 
             height: auto; 
             display: block; 
         }
@@ -128,6 +127,15 @@
             transform: rotate(-15deg);
             z-index: 20;
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+        }
+
+        /* Creates the "Plus" text via Code */
+        .logo-plus-text {
+            color: #8CC63F;
+            font-weight: 800; font-size: 2rem;
+            margin-top: 5px; font-style: italic;
+            text-shadow: 1px 1px 0px #fff;
+            background: white; padding: 0 5px; border-radius: 5px;
         }
 
         .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
@@ -174,7 +182,7 @@
         .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
         /* =========================================
-           MOBILE RESPONSIVENESS (THE FIX)
+           MOBILE RESPONSIVENESS
            ========================================= */
         @media (max-width: 900px) {
             body {
@@ -207,6 +215,7 @@
             .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
             .logo-image { max-width: 160px; } 
             .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
+            .logo-plus-text { font-size: 1.5rem; }
             .season-greeting { font-size: 0.9rem; margin-top: 10px; }
 
             .main-content {
@@ -244,7 +253,9 @@
                 </svg>
                 
                 <div class="logo-container">
-                    <img src="logo.png" alt="คนละครึ่ง Logo" class="logo-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
+                    
+                    <div class="logo-plus-text">พลัส</div>
                 </div>
             </div>
             
@@ -329,6 +340,7 @@
             const currentURL = window.location.href.split('?')[0]; 
             const targetURL = currentURL + "?status=success";
             
+            // Adjust QR Size for mobile if needed
             const qrSize = window.innerWidth < 600 ? 180 : 200;
             
             new QRCode(document.getElementById("qrcode"), {
