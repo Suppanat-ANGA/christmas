@@ -47,7 +47,6 @@
             100% { transform: translateY(110vh) translateX(30px) rotate(360deg); opacity: 0.3; }
         }
 
-        /* Snow Configuration */
         .snow:nth-child(1) { left: 5%;  animation-duration: 2.5s; width: 8px; height: 8px; animation-delay: 0s; }
         .snow:nth-child(2) { left: 15%; animation-duration: 3.5s; width: 12px; height: 12px; animation-delay: 1s; }
         .snow:nth-child(3) { left: 25%; animation-duration: 2s; width: 6px; height: 6px; animation-delay: 0.5s; }
@@ -110,7 +109,7 @@
             min-width: 200px;
         }
 
-        /* Fixed: Use Internet Link */
+        /* LOGO IMAGE STYLE - FIXED */
         .logo-image { 
             width: 100%; 
             max-width: 200px; 
@@ -129,7 +128,6 @@
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
         }
 
-        /* Creates the "Plus" text via Code */
         .logo-plus-text {
             color: #8CC63F;
             font-weight: 800; font-size: 2rem;
@@ -253,7 +251,10 @@
                 </svg>
                 
                 <div class="logo-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Khon_La_Khrueng_Logo.png" 
+                         alt="คนละครึ่ง Logo" 
+                         class="logo-image" 
+                         referrerpolicy="no-referrer">
                     
                     <div class="logo-plus-text">พลัส</div>
                 </div>
@@ -340,7 +341,6 @@
             const currentURL = window.location.href.split('?')[0]; 
             const targetURL = currentURL + "?status=success";
             
-            // Adjust QR Size for mobile if needed
             const qrSize = window.innerWidth < 600 ? 180 : 200;
             
             new QRCode(document.getElementById("qrcode"), {
