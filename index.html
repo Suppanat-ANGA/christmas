@@ -27,7 +27,7 @@
             min-height: 100vh; 
             padding: 20px; 
             position: relative; 
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden; 
         }
 
         /* --- SNOWFALL EFFECT --- */
@@ -64,7 +64,6 @@
         .desktop-container {
             width: 100%; 
             max-width: 1200px;
-            /* Default: Desktop Aspect Ratio */
             aspect-ratio: 16 / 9;
             background: white; 
             border-radius: 25px;
@@ -108,9 +107,17 @@
             position: relative;
             z-index: 1; 
             display: flex; flex-direction: column; align-items: center;
+            min-width: 200px; /* Ensure box has size even if img loads slow */
+            min-height: 120px;
         }
 
-        .logo-image { max-width: 200px; height: auto; display: block; }
+        /* FIXED: Use robust image styling */
+        .logo-image { 
+            width: 100%; 
+            max-width: 200px; 
+            height: auto; 
+            display: block; 
+        }
         
         .santa-hat-svg {
             position: absolute;
@@ -175,29 +182,29 @@
         .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
         /* =========================================
-           MOBILE RESPONSIVENESS (THE FIX)
+           MOBILE RESPONSIVENESS
            ========================================= */
         @media (max-width: 900px) {
             body {
-                padding: 0; /* Full screen on mobile */
-                align-items: flex-start; /* Start from top */
-                background: var(--brand-blue); /* Solid blue bg for simplicity on mobile */
+                padding: 0; 
+                align-items: flex-start; 
+                background: var(--brand-blue); 
             }
 
             .desktop-container {
-                flex-direction: column; /* Stack vertically */
+                flex-direction: column; 
                 width: 100%;
                 max-width: 100%;
-                aspect-ratio: auto; /* Remove fixed aspect ratio */
+                aspect-ratio: auto; 
                 height: auto;
                 min-height: 100vh;
-                border-radius: 0; /* Remove rounded corners */
+                border-radius: 0; 
             }
 
             /* Adjust Sidebar (Header on Mobile) */
             .sidebar {
                 width: 100%;
-                padding: 30px 20px;
+                padding: 40px 20px 30px 20px;
                 align-items: center;
                 text-align: center;
                 border-bottom-left-radius: 30px;
@@ -206,8 +213,8 @@
                 z-index: 20;
             }
 
-            .logo-wrapper { margin-bottom: 15px; }
-            .logo-image { max-width: 150px; }
+            .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
+            .logo-image { max-width: 160px; } /* Slightly smaller on mobile */
             .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
             .logo-plus-text { font-size: 1.5rem; }
             .season-greeting { font-size: 0.9rem; margin-top: 10px; }
@@ -217,18 +224,11 @@
                 width: 100%;
                 padding: 40px 20px;
                 background: #f8fdfb;
-                flex: 1; /* Take remaining height */
-                align-items: flex-start; /* Align content to top */
+                flex: 1;
+                align-items: flex-start; 
             }
 
-            .view-section {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .qr-box-container {
-                margin: 10px 0;
-            }
+            .view-section { width: 100%; max-width: 100%; }
         }
     </style>
 </head>
@@ -255,7 +255,7 @@
                 </svg>
                 
                 <div class="logo-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Khon_La_Khrueng_Logo.png/640px-Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Khon_La_Khrueng_Logo.png" alt="คนละครึ่ง Logo" class="logo-image">
                     <div class="logo-plus-text">พลัส</div>
                 </div>
             </div>
@@ -341,7 +341,6 @@
             const currentURL = window.location.href.split('?')[0]; 
             const targetURL = currentURL + "?status=success";
             
-            // Adjust QR Size for mobile if needed
             const qrSize = window.innerWidth < 600 ? 180 : 200;
             
             new QRCode(document.getElementById("qrcode"), {
