@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คนละครึ่งพลัส - Ultimate Christmas Edition</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        :root {
+            --brand-blue: #21409A;
+            --brand-orange: #F7941E;
+            --xmas-red: #D42426;
+            --xmas-green: #165B33;
+            --xmas-gold: #FFD700;
+            --bg-night: #0f2044;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
+
+        body {
+            background: linear-gradient(to bottom, var(--bg-night), var(--brand-blue));
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; padding: 20px; position: relative; overflow: hidden;
+        }
+
+        /* --- BLIZZARD SNOWFALL EFFECT --- */
+        .snow-container {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 100;
+        }
+
+        .snow {
+            position: absolute; top: -20px;
+            background: white; border-radius: 50%;
+            filter: blur(0.8px); animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) translateX(30px) rotate(360deg); opacity: 0.3; }
+        }
+
+        /* Fast & Dense Snow */
+        .snow:nth-child(1) { left: 5%;  animation-duration: 2.5s; width: 8px; height: 8px; animation-delay: 0s; }
+        .snow:nth-child(2) { left: 15%; animation-duration: 3.5s; width: 12px; height: 12px; animation-delay: 1s; }
+        .snow:nth-child(3) { left: 25%; animation-duration: 2s; width: 6px; height: 6px; animation-delay: 0.5s; }
+        .snow:nth-child(4) { left: 35%; animation-duration: 4s; width: 10px; height: 10px; animation-delay: 0.2s; }
+        .snow:nth-child(5) { left: 45%; animation-duration: 2.8s; width: 14px; height: 14px; animation-delay: 0s; }
+        .snow:nth-child(6) { left: 55%; animation-duration: 3s; width: 8px; height: 8px; animation-delay: 1.5s; }
+        .snow:nth-child(7) { left: 65%; animation-duration: 3.8s; width: 12px; height: 12px; animation-delay: 0.5s; }
+        .snow:nth-child(8) { left: 75%; animation-duration: 2.2s; width: 7px; height: 7px; animation-delay: 1s; }
+        .snow:nth-child(9) { left: 85%; animation-duration: 3.2s; width: 10px; height: 10px; animation-delay: 0.8s; }
+        .snow:nth-child(10){ left: 95%; animation-duration: 2.5s; width: 9px; height: 9px; animation-delay: 0s; }
+        .snow:nth-child(11){ left: 10%; animation-duration: 3.1s; width: 10px; height: 10px; animation-delay: 1.5s; }
+        .snow:nth-child(12){ left: 20%; animation-duration: 2.0s; width: 7px; height: 7px; animation-delay: 0.2s; }
+        .snow:nth-child(13){ left: 30%; animation-duration: 3.5s; width: 11px; height: 11px; animation-delay: 2s; }
+        .snow:nth-child(14){ left: 50%; animation-duration: 2.4s; width: 8px; height: 8px; animation-delay: 1s; }
+        .snow:nth-child(15){ left: 70%; animation-duration: 2.7s; width: 13px; height: 13px; animation-delay: 0.5s; }
+        .snow:nth-child(16){ left: 90%; animation-duration: 3.3s; width: 9px; height: 9px; animation-delay: 1.2s; }
+
+
+        /* --- CONTAINER (16:9) --- */
+        .desktop-container {
+            width: 100%; max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            background: white; border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            overflow: hidden; display: flex; position: relative; z-index: 10;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(135deg, var(--brand-blue) 30%, var(--xmas-green) 100%);
+            color: white;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 50px; position: relative;
+        }
+
+        /* --- LOGO & SANTA HAT WRAPPER --- */
+        .logo-wrapper {
+            position: relative; 
+            display: inline-block;
+            margin-bottom: 30px;
+            width: fit-content;
+        }
+
+        .logo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1; 
+        }
+
+        .logo-image { max-width: 100%; height: auto; display: block; }
+        
+        /* THE EMBEDDED SVG SANTA HAT */
+        .santa-hat-svg {
+            position: absolute;
+            width: 120px;  /* Size of the hat */
+            height: 120px;
+            top: -65px;    /* Move Up to sit on corner */
+            left: -40px;   /* Move Left to tilt off edge */
+            transform: rotate(-15deg);
+            z-index: 20;   /* Ensure it is ABOVE the logo box */
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+        }
+
+        .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            width: 65%; background: #f8fdfb; display: flex; justify-content: center; align-items: center; position: relative;
+        }
+
+        .garland-top {
+            position: absolute; top: 0; left: 0; width: 100%; height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 10 Q 25 -10, 50 10 T 100 10" stroke="%23165B33" fill="none" stroke-width="3"/></svg>');
+            background-size: 50px 100%;
+        }
+
+        /* --- VIEWS --- */
+        .view-section {
+            width: 100%; max-width: 450px; text-align: center; display: none; animation: fadeIn 0.5s ease;
+        }
+        .view-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* QR DISPLAY */
+        .qr-box-container {
+            background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 4px dashed var(--xmas-red); display: inline-block; margin: 20px 0;
+        }
+        #qrcode { width: 200px; height: 200px; margin: 0 auto; }
+        #qrcode img { margin: 0 auto; }
+
+        .scan-instruction { color: var(--brand-blue); margin-top: 15px; font-weight: 600; }
+        .merchant-note { font-size: 0.8rem; color: #888; margin-top: 20px; background: #eee; padding: 10px; border-radius: 8px; }
+
+        /* SUCCESS RECEIPT */
+        .success-card { width: 100%; }
+        .check-circle-festive {
+            width: 100px; height: 100px; background: var(--xmas-green); border: 4px solid var(--xmas-red); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; color: white; font-size: 3rem; animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(22, 91, 51, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0); }
+        }
+        .receipt-box { background: white; border: 2px dashed var(--xmas-gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; }
+        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; }
+        .receipt-total { border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px; font-weight: bold; color: var(--brand-blue); }
+
+        .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
+
+    </style>
+</head>
+<body>
+
+    <div class="snow-container">
+        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    </div>
+
+    <div class="desktop-container">
+        
+        <div class="sidebar">
+            
+            <div class="logo-wrapper">
+                
+                <svg class="santa-hat-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="#D42426" d="M418.4,156.6c-45.6-26.7-65.7-18.3-90.1,6.1c-14.7,14.7-27.1,34.2-34.8,55.1
+                        c-48.4-56.1-133.7-46.7-160.7-32.5c-48.1,25.2-61.1,100.9-20.9,157.9c16.2,23,43.2,40.1,70.5,49.8
+                        c127,45.3,275.9-42.5,275.9-42.5C487.6,303,473.4,188.8,418.4,156.6z"/>
+                    <circle fill="#FFFFFF" cx="448" cy="128" r="48"/>
+                    <path fill="#FFFFFF" d="M112,352c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S138.5,352,112,352z M176,368
+                        c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S202.5,368,176,368z M240,368c-26.5,0-48,21.5-48,48s21.5,48,48,48
+                        s48-21.5,48-48S266.5,368,240,368z M304,352c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S330.5,352,304,352z"/>
+                </svg>
+                
+                <div class="logo-container">
+                    <img src="logo.png" alt="คนละครึ่งพลัส Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <p class="season-greeting">
+                ระบบชำระเงินแห่งความสุข<br>
+                <strong>Christmas Edition 2024</strong>
+                <br><br>
+                สิทธิพิเศษสำหรับคุณ<br>
+                ในช่วงเทศกาลส่งท้ายปี
+            </p>
+        </div>
+
+        <div class="main-content">
+            <div class="garland-top"></div>
+
+            <div id="merchant-view" class="view-section">
+                <h2 style="color:var(--brand-blue);">สแกนจ่ายคนละครึ่ง</h2>
+                <p style="color:#666;">ร้านค้า: <strong>ถุงเงินพลัส (สาขาคริสต์มาส)</strong></p>
+                
+                <div class="qr-box-container">
+                    <div id="qrcode"></div>
+                </div>
+
+                <div class="scan-instruction">
+                    <i class="fas fa-mobile-alt"></i> ใช้มือถือสแกนเพื่อรับสิทธิ์
+                </div>
+
+                <div class="merchant-note">
+                    <strong>For Demo:</strong> If you are running this locally (file://), the phone cannot open the link. 
+                    <br>
+                    <span class="sim-link" onclick="window.location.search='?status=success'">Click here to simulate a successful scan</span>
+                </div>
+            </div>
+
+            <div id="customer-view" class="view-section">
+                <div class="success-card">
+                    <div class="check-circle-festive">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 style="color:var(--brand-blue); margin-bottom:5px;">ชำระเงินสำเร็จ</h2>
+                    <p style="color:#666;">ใช้สิทธิ์คนละครึ่งเรียบร้อยแล้ว</p>
+
+                    <div class="receipt-box">
+                        <div style="text-align:center; color:var(--xmas-red); margin-bottom:15px; font-weight:bold;">
+                            <i class="fas fa-tree"></i> Merry Christmas <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="receipt-row">
+                            <span>วันที่</span>
+                            <span id="timestamp">--/--/----</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>ร้านค้า</span>
+                            <span>ถุงเงินพลัส</span>
+                        </div>
+                        <div class="receipt-row receipt-total">
+                            <span>สถานะ</span>
+                            <span style="color:var(--xmas-green);">ยืนยันแล้ว <i class="fas fa-gift"></i></span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:10px 30px; border-radius:50px; margin-top:20px; cursor:pointer;">
+                        หน้าหลัก
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const merchantView = document.getElementById('merchant-view');
+        const customerView = document.getElementById('customer-view');
+
+        if (status === 'success') {
+            merchantView.classList.remove('active');
+            customerView.classList.add('active');
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('timestamp').innerText = now.toLocaleDateString('th-TH', options);
+        } else {
+            customerView.classList.remove('active');
+            merchantView.classList.add('active');
+            const currentURL = window.location.href.split('?')[0]; 
+            const targetURL = currentURL + "?status=success";
+            new QRCode(document.getElementById("qrcode"), {
+                text: targetURL, width: 200, height: 200,
+                colorDark : "#21409A", colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
