@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANGA Mastery - Christmas Prank</title>
+    <title>คนละครึ่งพลัส เฟส 2 - Christmas Prank</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -132,6 +132,15 @@
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
         }
 
+        /* Styling for "Phase 2" text */
+        .logo-plus-text {
+            color: #8CC63F;
+            font-weight: 800; font-size: 1.8rem;
+            margin-top: 5px; font-style: italic;
+            text-shadow: 1px 1px 0px #fff;
+            background: white; padding: 0 5px; border-radius: 5px;
+        }
+
         .season-greeting { font-size: 1.1rem; font-weight: 300; opacity: 0.95; line-height: 1.6; }
 
         .garland-top {
@@ -150,243 +159,4 @@
         /* QR DISPLAY */
         .qr-box-container {
             background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 4px dashed var(--xmas-red); display: inline-block; margin: 20px 0;
-        }
-        #qrcode { width: 200px; height: 200px; margin: 0 auto; }
-        #qrcode img { margin: 0 auto; }
-
-        .scan-instruction { color: var(--brand-blue); margin-top: 15px; font-weight: 600; }
-        .merchant-note { font-size: 0.8rem; color: #888; margin-top: 20px; background: #eee; padding: 10px; border-radius: 8px; }
-
-        /* CLAIM PAGE STYLES */
-        .claim-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid var(--xmas-gold);
-        }
-        .btn-claim {
-            background: linear-gradient(to right, var(--brand-orange), #ff6b6b);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.3rem;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 8px 15px rgba(247, 148, 30, 0.4);
-            transition: all 0.2s;
-            width: 100%;
-            margin-top: 20px;
-            font-weight: bold;
-            animation: pulseBtn 2s infinite;
-        }
-        @keyframes pulseBtn {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .limit-badge {
-            background: var(--xmas-red); color: white;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;
-            display: inline-block; margin-bottom: 15px;
-        }
-
-        /* PRANK SUCCESS RECEIPT */
-        .success-card { width: 100%; }
-        
-        /* Funny Prank Icon Style */
-        .check-circle-prank {
-            width: 100px; height: 100px; 
-            background: #ff6b6b; /* Reddish Background */
-            border: 4px solid #c0392b; 
-            border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; 
-            margin: 0 auto 20px auto; 
-            color: white; 
-            font-size: 3rem; 
-            animation: shake 0.5s infinite;
-        }
-        
-        @keyframes shake {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            50% { transform: rotate(0eg); }
-            75% { transform: rotate(-5deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        .receipt-box { background: white; border: 2px dashed var(--xmas-gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; }
-        .receipt-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; font-size: 0.95rem; }
-        .receipt-total { border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px; font-weight: bold; color: var(--brand-blue); }
-
-        .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
-
-        @media (max-width: 900px) {
-            body { padding: 0; align-items: flex-start; background: var(--brand-blue); }
-            .desktop-container { flex-direction: column; width: 100%; max-width: 100%; aspect-ratio: auto; height: auto; min-height: 100vh; border-radius: 0; }
-            .sidebar { width: 100%; padding: 40px 20px 30px 20px; align-items: center; text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 20; }
-            .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
-            .logo-image { max-width: 160px; } 
-            .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
-            .season-greeting { font-size: 0.9rem; margin-top: 10px; }
-            .main-content { width: 100%; padding: 40px 20px; background: #f8fdfb; flex: 1; align-items: flex-start; }
-            .view-section { width: 100%; max-width: 100%; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="snow-container">
-        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    </div>
-
-    <div class="desktop-container">
-        
-        <div class="sidebar">
-            <div class="logo-wrapper">
-                <svg class="santa-hat-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="#D42426" d="M418.4,156.6c-45.6-26.7-65.7-18.3-90.1,6.1c-14.7,14.7-27.1,34.2-34.8,55.1
-                        c-48.4-56.1-133.7-46.7-160.7-32.5c-48.1,25.2-61.1,100.9-20.9,157.9c16.2,23,43.2,40.1,70.5,49.8
-                        c127,45.3,275.9-42.5,275.9-42.5C487.6,303,473.4,188.8,418.4,156.6z"/>
-                    <circle fill="#FFFFFF" cx="448" cy="128" r="48"/>
-                    <path fill="#FFFFFF" d="M112,352c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S138.5,352,112,352z M176,368
-                        c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S202.5,368,176,368z M240,368c-26.5,0-48,21.5-48,48s21.5,48,48,48
-                        s48-21.5,48-48S266.5,368,240,368z M304,352c-26.5,0-48,21.5-48,48s21.5,48,48,48s48-21.5,48-48S330.5,352,304,352z"/>
-                </svg>
-                
-                <div class="logo-container">
-                    <img src="https://i.postimg.cc/ZWPch8WH/logo.png" 
-                         alt="คนละครึ่ง Logo" 
-                         class="logo-image" 
-                         referrerpolicy="no-referrer">
-                </div>
-            </div>
-            
-            <p class="season-greeting">
-                ระบบชำระเงิน ANGA Mastery<br>
-                <strong>ANGA Mastery Christmas 2025</strong>
-            </p>
-        </div>
-
-        <div class="main-content">
-            <div class="garland-top"></div>
-
-            <div id="merchant-view" class="view-section active">
-                <div class="limit-badge"><i class="fas fa-exclamation-circle"></i> สิทธิ์มีจำนวนจำกัด</div>
-                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนเพื่อรับสิทธิ์</h2>
-                <p style="color:#666; margin-bottom:10px;">First Come First Serve (มาก่อนได้ก่อน)</p>
-                <p style="color:#888; font-size:0.9rem;">ร้านค้า: <strong>ANGA Mastery</strong></p>
-                
-                <div class="qr-box-container">
-                    <div id="qrcode"></div>
-                </div>
-
-                <div class="scan-instruction">
-                    <i class="fas fa-mobile-alt"></i> ใช้มือถือสแกนด่วน
-                </div>
-
-                <div class="merchant-note">
-                    <strong>For Demo:</strong> Phone can't open local file links.
-                    <br>
-                    <span class="sim-link" onclick="window.location.search='?step=claim'">Click here to simulate User Scan</span>
-                </div>
-            </div>
-
-            <div id="claim-view" class="view-section">
-                <div class="claim-card">
-                    <i class="fas fa-gift" style="font-size:3rem; color:var(--brand-orange); margin-bottom:15px;"></i>
-                    <h2 style="color:var(--brand-blue);">ยินดีด้วย!</h2>
-                    <p style="font-size:1.1rem; color:#444; margin: 10px 0;">คุณเข้าถึงระบบทันเวลา</p>
-                    <p style="color:var(--xmas-red); font-weight:bold;">⚠️ กรุณากดยืนยันเพื่อล็อคสิทธิ์</p>
-                    
-                    <button class="btn-claim" onclick="window.location.search='?step=success'">
-                        ยืนยันสิทธิ์คนละครึ่ง
-                    </button>
-                    
-                    <p style="margin-top:15px; font-size:0.8rem; color:#999;">
-                        ระบบ First Come First Serve<br>หากออกจากหน้านี้ สิทธิ์อาจหลุดทันที
-                    </p>
-                </div>
-            </div>
-
-            <div id="success-view" class="view-section">
-                <div class="success-card">
-                    <div class="check-circle-prank">
-                        <i class="fas fa-laugh-squint"></i>
-                    </div>
-                    
-                    <h2 style="color:#c0392b; margin-bottom:5px; font-size:1.8rem;">โดนแกงแล้ว! 🤪</h2>
-                    <p style="color:#666;">เสียใจด้วย... งานนี้ไม่มีเงินแจกจ้า</p>
-
-                    <div class="receipt-box">
-                        <div style="text-align:center; color:var(--brand-blue); margin-bottom:15px; font-weight:bold; font-size:1.1rem;">
-                            <i class="fas fa-glass-cheers"></i> จ่ายเอง 100% ครับผม <i class="fas fa-glass-cheers"></i>
-                        </div>
-                        <div class="receipt-row">
-                            <span>วงเงินที่อนุมัติ</span>
-                            <span style="color:var(--xmas-red); font-weight:bold; font-size:1.2rem;">0.00 บาท</span>
-                        </div>
-                        <div class="receipt-row">
-                            <span>ผู้สนับสนุน</span>
-                            <span>ตังค์ในกระเป๋าคุณเอง</span>
-                        </div>
-                        <div class="receipt-row receipt-total">
-                            <span>สถานะ</span>
-                            <span style="color:var(--brand-orange); display:flex; align-items:center; gap:5px;">
-                                <i class="fas fa-heart"></i> หยอกๆ รักนะจุ๊บๆ
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:12px 30px; border-radius:50px; margin-top:20px; cursor:pointer; width:100%; max-width:200px; font-size:1rem;">
-                        ให้อภัย & กลับหน้าหลัก
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <script>
-        // Logic for 3-Step Flow
-        const urlParams = new URLSearchParams(window.location.search);
-        const step = urlParams.get('step');
-
-        const merchantView = document.getElementById('merchant-view');
-        const claimView = document.getElementById('claim-view');
-        const successView = document.getElementById('success-view');
-
-        // Reset all views
-        merchantView.classList.remove('active');
-        claimView.classList.remove('active');
-        successView.classList.remove('active');
-
-        if (step === 'success') {
-            // STEP 3: PRANK SUCCESS
-            successView.classList.add('active');
-        } else if (step === 'claim') {
-            // STEP 2: CLAIM LANDING PAGE (FCFS)
-            claimView.classList.add('active');
-        } else {
-            // STEP 1: MERCHANT QR CODE
-            merchantView.classList.add('active');
-            
-            // Generate QR that points to ?step=claim
-            const currentURL = window.location.href.split('?')[0]; 
-            const targetURL = currentURL + "?step=claim";
-            
-            const qrSize = window.innerWidth < 600 ? 180 : 200;
-            
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"), {
-                text: targetURL, width: qrSize, height: qrSize,
-                colorDark : "#21409A", colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        }
-    </script>
-</body>
-</html>
+            border: 4px dashed
