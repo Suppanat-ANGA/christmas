@@ -109,18 +109,17 @@
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            justify-content: center; /* Force centering */
+            justify-content: center;
             min-width: 200px;
-            min-height: 120px; /* Give it some height for balance */
+            min-height: 120px;
         }
 
-        /* LOGO IMAGE STYLE */
         .logo-image { 
             width: 100%; 
             max-width: 200px; 
             height: auto; 
             display: block; 
-            margin: 0 auto; /* Ensure image itself is centered */
+            margin: 0 auto;
         }
         
         .santa-hat-svg {
@@ -160,6 +159,40 @@
         .scan-instruction { color: var(--brand-blue); margin-top: 15px; font-weight: 600; }
         .merchant-note { font-size: 0.8rem; color: #888; margin-top: 20px; background: #eee; padding: 10px; border-radius: 8px; }
 
+        /* CLAIM PAGE STYLES */
+        .claim-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--xmas-gold);
+        }
+        .btn-claim {
+            background: linear-gradient(to right, var(--brand-orange), #ff6b6b);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(247, 148, 30, 0.4);
+            transition: all 0.2s;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: pulseBtn 2s infinite;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .limit-badge {
+            background: var(--xmas-red); color: white;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;
+            display: inline-block; margin-bottom: 15px;
+        }
+
         /* SUCCESS RECEIPT */
         .success-card { width: 100%; }
         .check-circle-festive {
@@ -181,46 +214,14 @@
            MOBILE RESPONSIVENESS
            ========================================= */
         @media (max-width: 900px) {
-            body {
-                padding: 0; 
-                align-items: flex-start; 
-                background: var(--brand-blue); 
-            }
-
-            .desktop-container {
-                flex-direction: column; 
-                width: 100%;
-                max-width: 100%;
-                aspect-ratio: auto; 
-                height: auto;
-                min-height: 100vh;
-                border-radius: 0; 
-            }
-
-            .sidebar {
-                width: 100%;
-                padding: 40px 20px 30px 20px;
-                align-items: center;
-                text-align: center;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-                z-index: 20;
-            }
-
+            body { padding: 0; align-items: flex-start; background: var(--brand-blue); }
+            .desktop-container { flex-direction: column; width: 100%; max-width: 100%; aspect-ratio: auto; height: auto; min-height: 100vh; border-radius: 0; }
+            .sidebar { width: 100%; padding: 40px 20px 30px 20px; align-items: center; text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 20; }
             .logo-wrapper { margin-bottom: 15px; margin-top: 10px; }
             .logo-image { max-width: 160px; } 
             .santa-hat-svg { width: 70px; height: 70px; top: -40px; left: -20px; }
             .season-greeting { font-size: 0.9rem; margin-top: 10px; }
-
-            .main-content {
-                width: 100%;
-                padding: 40px 20px;
-                background: #f8fdfb;
-                flex: 1;
-                align-items: flex-start; 
-            }
-
+            .main-content { width: 100%; padding: 40px 20px; background: #f8fdfb; flex: 1; align-items: flex-start; }
             .view-section { width: 100%; max-width: 100%; }
         }
     </style>
@@ -265,31 +266,50 @@
             <div class="garland-top"></div>
 
             <div id="merchant-view" class="view-section active">
-                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนจ่าย ANGA</h2>
-                <p style="color:#666;">ร้านค้า: <strong>ANGA Mastery (สาขาคริสต์มาส)</strong></p>
+                <div class="limit-badge"><i class="fas fa-exclamation-circle"></i> สิทธิ์มีจำนวนจำกัด</div>
+                <h2 style="color:var(--brand-blue); font-size:1.5rem;">สแกนเพื่อรับสิทธิ์</h2>
+                <p style="color:#666; margin-bottom:10px;">First Come First Serve (มาก่อนได้ก่อน)</p>
+                <p style="color:#888; font-size:0.9rem;">ร้านค้า: <strong>ANGA Mastery</strong></p>
                 
                 <div class="qr-box-container">
                     <div id="qrcode"></div>
                 </div>
 
                 <div class="scan-instruction">
-                    <i class="fas fa-mobile-alt"></i> ใช้มือถือสแกนเพื่อรับสิทธิ์
+                    <i class="fas fa-mobile-alt"></i> ใช้มือถือสแกนด่วน
                 </div>
 
                 <div class="merchant-note">
                     <strong>For Demo:</strong> Phone can't open local file links.
                     <br>
-                    <span class="sim-link" onclick="window.location.search='?status=success'">Click here to simulate success</span>
+                    <span class="sim-link" onclick="window.location.search='?step=claim'">Click here to simulate User Scan</span>
                 </div>
             </div>
 
-            <div id="customer-view" class="view-section">
+            <div id="claim-view" class="view-section">
+                <div class="claim-card">
+                    <i class="fas fa-gift" style="font-size:3rem; color:var(--brand-orange); margin-bottom:15px;"></i>
+                    <h2 style="color:var(--brand-blue);">ยินดีด้วย!</h2>
+                    <p style="font-size:1.1rem; color:#444; margin: 10px 0;">คุณเข้าถึงระบบทันเวลา</p>
+                    <p style="color:var(--xmas-red); font-weight:bold;">⚠️ กรุณากดยืนยันเพื่อล็อคสิทธิ์</p>
+                    
+                    <button class="btn-claim" onclick="window.location.search='?step=success'">
+                        รับสิทธิคนละครึ่ง
+                    </button>
+                    
+                    <p style="margin-top:15px; font-size:0.8rem; color:#999;">
+                        ระบบ First Come First Serve<br>หากออกจากหน้านี้ สิทธิ์อาจหลุดทันที
+                    </p>
+                </div>
+            </div>
+
+            <div id="success-view" class="view-section">
                 <div class="success-card">
                     <div class="check-circle-festive">
                         <i class="fas fa-check"></i>
                     </div>
-                    <h2 style="color:var(--brand-blue); margin-bottom:5px;">ชำระเงินสำเร็จ</h2>
-                    <p style="color:#666;">ใช้สิทธิ์เรียบร้อยแล้ว</p>
+                    <h2 style="color:var(--brand-blue); margin-bottom:5px;">รับสิทธิสำเร็จ</h2>
+                    <p style="color:#666;">คุณได้รับสิทธิ์คนละครึ่งแล้ว</p>
 
                     <div class="receipt-box">
                         <div style="text-align:center; color:var(--xmas-red); margin-bottom:15px; font-weight:bold;">
@@ -300,8 +320,8 @@
                             <span id="timestamp">--/--/----</span>
                         </div>
                         <div class="receipt-row">
-                            <span>ร้านค้า</span>
-                            <span>ANGA Mastery</span>
+                            <span>ผู้ได้รับสิทธิ์</span>
+                            <span>ANGA Member</span>
                         </div>
                         <div class="receipt-row receipt-total">
                             <span>สถานะ</span>
@@ -310,7 +330,7 @@
                     </div>
                     
                     <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:12px 30px; border-radius:50px; margin-top:20px; cursor:pointer; width:100%; max-width:200px; font-size:1rem;">
-                        หน้าหลัก
+                        กลับหน้าหลัก
                     </button>
                 </div>
             </div>
@@ -319,22 +339,37 @@
     </div>
 
     <script>
+        // Logic for 3-Step Flow
         const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        const merchantView = document.getElementById('merchant-view');
-        const customerView = document.getElementById('customer-view');
+        const step = urlParams.get('step');
 
-        if (status === 'success') {
-            merchantView.classList.remove('active');
-            customerView.classList.add('active');
+        const merchantView = document.getElementById('merchant-view');
+        const claimView = document.getElementById('claim-view');
+        const successView = document.getElementById('success-view');
+
+        // Reset all views
+        merchantView.classList.remove('active');
+        claimView.classList.remove('active');
+        successView.classList.remove('active');
+
+        if (step === 'success') {
+            // STEP 3: SUCCESS RECEIPT
+            successView.classList.add('active');
             const now = new Date();
             const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
             document.getElementById('timestamp').innerText = now.toLocaleDateString('th-TH', options);
+
+        } else if (step === 'claim') {
+            // STEP 2: CLAIM LANDING PAGE (FCFS)
+            claimView.classList.add('active');
+
         } else {
-            customerView.classList.remove('active');
+            // STEP 1: MERCHANT QR CODE
             merchantView.classList.add('active');
+            
+            // Generate QR that points to ?step=claim
             const currentURL = window.location.href.split('?')[0]; 
-            const targetURL = currentURL + "?status=success";
+            const targetURL = currentURL + "?step=claim";
             
             const qrSize = window.innerWidth < 600 ? 180 : 200;
             
