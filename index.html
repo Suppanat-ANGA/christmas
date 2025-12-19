@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANGA Mastery - Christmas Edition</title>
+    <title>ANGA Mastery - Christmas Prank</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -47,7 +47,6 @@
             100% { transform: translateY(110vh) translateX(30px) rotate(360deg); opacity: 0.3; }
         }
 
-        /* Snow Configuration */
         .snow:nth-child(1) { left: 5%;  animation-duration: 2.5s; width: 8px; height: 8px; animation-delay: 0s; }
         .snow:nth-child(2) { left: 15%; animation-duration: 3.5s; width: 12px; height: 12px; animation-delay: 1s; }
         .snow:nth-child(3) { left: 25%; animation-duration: 2s; width: 6px; height: 6px; animation-delay: 0.5s; }
@@ -193,26 +192,36 @@
             display: inline-block; margin-bottom: 15px;
         }
 
-        /* SUCCESS RECEIPT */
+        /* PRANK SUCCESS RECEIPT */
         .success-card { width: 100%; }
-        .check-circle-festive {
-            width: 90px; height: 90px; background: var(--xmas-green); border: 4px solid var(--xmas-red); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; color: white; font-size: 2.5rem; animation: pulse 2s infinite;
+        
+        /* Funny Prank Icon Style */
+        .check-circle-prank {
+            width: 100px; height: 100px; 
+            background: #ff6b6b; /* Reddish Background */
+            border: 4px solid #c0392b; 
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; 
+            margin: 0 auto 20px auto; 
+            color: white; 
+            font-size: 3rem; 
+            animation: shake 0.5s infinite;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(22, 91, 51, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 91, 51, 0); }
+        
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(0eg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
         }
+
         .receipt-box { background: white; border: 2px dashed var(--xmas-gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; }
         .receipt-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; font-size: 0.95rem; }
         .receipt-total { border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px; font-weight: bold; color: var(--brand-blue); }
 
         .sim-link { display: block; margin-top: 10px; color: var(--brand-orange); text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
         @media (max-width: 900px) {
             body { padding: 0; align-items: flex-start; background: var(--brand-blue); }
             .desktop-container { flex-direction: column; width: 100%; max-width: 100%; aspect-ratio: auto; height: auto; min-height: 100vh; border-radius: 0; }
@@ -294,7 +303,7 @@
                     <p style="color:var(--xmas-red); font-weight:bold;">⚠️ กรุณากดยืนยันเพื่อล็อคสิทธิ์</p>
                     
                     <button class="btn-claim" onclick="window.location.search='?step=success'">
-                        รับสิทธิคนละครึ่ง
+                        ยืนยันสิทธิ์คนละครึ่ง
                     </button>
                     
                     <p style="margin-top:15px; font-size:0.8rem; color:#999;">
@@ -305,32 +314,35 @@
 
             <div id="success-view" class="view-section">
                 <div class="success-card">
-                    <div class="check-circle-festive">
-                        <i class="fas fa-check"></i>
+                    <div class="check-circle-prank">
+                        <i class="fas fa-laugh-squint"></i>
                     </div>
-                    <h2 style="color:var(--brand-blue); margin-bottom:5px;">รับสิทธิสำเร็จ</h2>
-                    <p style="color:#666;">คุณได้รับสิทธิ์คนละครึ่งแล้ว</p>
+                    
+                    <h2 style="color:#c0392b; margin-bottom:5px; font-size:1.8rem;">โดนแกงแล้ว! 🤪</h2>
+                    <p style="color:#666;">เสียใจด้วย... งานนี้ไม่มีเงินแจกจ้า</p>
 
                     <div class="receipt-box">
-                        <div style="text-align:center; color:var(--xmas-red); margin-bottom:15px; font-weight:bold;">
-                            <i class="fas fa-tree"></i> ANGA Mastery Xmas <i class="fas fa-tree"></i>
+                        <div style="text-align:center; color:var(--brand-blue); margin-bottom:15px; font-weight:bold; font-size:1.1rem;">
+                            <i class="fas fa-glass-cheers"></i> จ่ายเอง 100% ครับผม <i class="fas fa-glass-cheers"></i>
                         </div>
                         <div class="receipt-row">
-                            <span>วันที่</span>
-                            <span id="timestamp">--/--/----</span>
+                            <span>วงเงินที่อนุมัติ</span>
+                            <span style="color:var(--xmas-red); font-weight:bold; font-size:1.2rem;">0.00 บาท</span>
                         </div>
                         <div class="receipt-row">
-                            <span>ผู้ได้รับสิทธิ์</span>
-                            <span>ANGA Member</span>
+                            <span>ผู้สนับสนุน</span>
+                            <span>ตังค์ในกระเป๋าคุณเอง</span>
                         </div>
                         <div class="receipt-row receipt-total">
                             <span>สถานะ</span>
-                            <span style="color:var(--xmas-green);">ยืนยันแล้ว <i class="fas fa-gift"></i></span>
+                            <span style="color:var(--brand-orange); display:flex; align-items:center; gap:5px;">
+                                <i class="fas fa-heart"></i> หยอกๆ รักนะจุ๊บๆ
+                            </span>
                         </div>
                     </div>
                     
                     <button onclick="window.location.search=''" style="background:var(--brand-blue); color:white; border:none; padding:12px 30px; border-radius:50px; margin-top:20px; cursor:pointer; width:100%; max-width:200px; font-size:1rem;">
-                        กลับหน้าหลัก
+                        ให้อภัย & กลับหน้าหลัก
                     </button>
                 </div>
             </div>
@@ -353,16 +365,11 @@
         successView.classList.remove('active');
 
         if (step === 'success') {
-            // STEP 3: SUCCESS RECEIPT
+            // STEP 3: PRANK SUCCESS
             successView.classList.add('active');
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            document.getElementById('timestamp').innerText = now.toLocaleDateString('th-TH', options);
-
         } else if (step === 'claim') {
             // STEP 2: CLAIM LANDING PAGE (FCFS)
             claimView.classList.add('active');
-
         } else {
             // STEP 1: MERCHANT QR CODE
             merchantView.classList.add('active');
